@@ -3,6 +3,7 @@ const app = express();
 const port = process.env.PORT || 5000 ;
 const cors = require('cors')
 const destinations = require('./data/destinations.json')
+const blogs = require('./data/blog.json')
 
 app.use(cors())
 
@@ -21,7 +22,9 @@ app.get('/destination/:id', (req, res)=>{
     res.send(specificDestination)
 })
 
-
+app.get('/blog', (req,res)=>{
+    res.send(blogs)
+})
 
 app.listen(port, ()=>{
     console.log(`travel guru server is running on port: ${port}`)
